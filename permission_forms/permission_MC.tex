@@ -1,0 +1,133 @@
+	% Permission form 
+	
+	\documentclass{article}
+	\input{theme.tex} %include theme.tex
+	\input{permission_includes.tex} %include permission_includes.tex
+	
+	\renewcommand{\arraystretch}{1.5}
+
+
+\begin{document}
+
+
+\begin{Form}
+
+	\studentInfo{x}{Spring 2022}{Multimedia Computing} %input student info from permission_includes.tex
+	\internshipInfo %input intership info from permission_includes.tex
+
+	\vfill
+
+	\setlength\tabcolsep{4pt}
+
+	\newpage
+	\section*{Courses Taken}
+	Please complete the following section.
+	\begin{enumerate}
+		\item If you are currently taking the course, simply supply the instructor, and leave the grade blank;
+		\item If you haven’t taken the course, leave it blank.
+		\item If you retook the course, provide the most recent grade and instructor.
+		\item If you are interested in a particular area for a project (MC or non-MC), please provide any additional relevant courses in the last section, e.g., if you are interested in computational biology, list any biology, chemistry, or other related courses in that section, and explain your interest in the Project Interests section above.
+	\end{enumerate}
+	\noindent
+	%\begin{tabularx}{\textwidth}{| l | l | C | C | }
+	%\begin{tabularx}{\linewidth}{|L{1in}|L{2.25in}|E{1in}|E{0.5in}|}
+	\begin{tabular}{ |p{3.27cm}|p{6cm}|p{4.8cm}|p{2.3cm}|  }
+		\hline
+		Course              & Title                                         & Instructor                                                                                  & Grade                                                                       \\
+		\hlinewd{1.5pt}
+		CISC 1115 \emph{or} & Intro to Programming Using Java \emph{or}     & \TextField[name=1115_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=1115_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}}  \\
+
+		CISC 1170           & Java for Programmers                          & \TextField[name=1170_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=1170_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}}  \\
+		\hline
+		CISC 1600           & Introduction to Multimedia Computing          & \TextField[name=1600_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1]{}               & \TextField[name=1600_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}}  \\
+		\hline
+		CISC 2210           & Discrete Structures                           & \TextField[name=2210_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1]{}               & \TextField[name=2210_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}}  \\
+		\hline
+		CISC 2820W          & Computers and Ethics                          & \TextField[name=2820W_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1]{}              & \TextField[name=2820W_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		\hline
+		CISC 3115           & Introduction to Modern Programming Techniques & \TextField[name=3115_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=3115_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}}  \\
+		\hline
+		CISC 3130           & Data Structures                               & \TextField[name=3130_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=3130_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}}  \\
+		\hline
+		CISC 3220           & Analysis of Algorithms                        & \TextField[name=3220_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=3220_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}}  \\
+		\hline
+		CISC 3620           & Computer Graphics                             & \TextField[name=3620_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=3620_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}}  \\
+		\hline
+		CISC 3630           & Multimedia Computing                          & \TextField[name=3630_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=3630_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}}  \\
+		\hline
+		CISC 4900 \emph{or} & Independent and Group Projects I \emph{or}    & \TextField[name=4900_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=4900_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}}  \\
+		CISC 5001           & Independent Study and Research I              & \TextField[name=5001_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=5001_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}}  \\
+		\hline
+	\end{tabular}
+	% & &   &   &   &   &   \\
+	%    \hline
+
+
+	\section*{Other required courses}
+	% \begin{tabularx}{\linewidth}{| l | l | C | C |}
+	\begin{tabular}{ |p{3.27cm}|p{6cm}|p{4.8cm}|p{2.3cm}|  }
+		\hline
+		Course              & Title                                                      & Instructor                                                                                   & Grade                                                                       \\
+		\hlinewd{1.5pt}
+
+		Math 1006           & College Algebra for Precalculus                            & \TextField[name=M1006_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=M1006_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		\hline
+		Math 1011 \emph{or} & Precalculus Mathematics \emph{or}                          & \TextField[name=M1011_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=M1011_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		Math 1012           & Precalculus with Recitation                                & \TextField[name=M1012_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=M1012_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		\hline
+		Math 1201           & Calculus I                                                 & \TextField[name=M1201_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=M1201_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		\hline
+		Math 1711 \emph{or} & Mathematical Foundations of Computer Graphics I \emph{or}  & \TextField[name=M1711_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=M1711_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		Math 1206           & Calculus II                                                & \TextField[name=M1206_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=M1206_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		\hline
+		Math 1716 \emph{or} & Mathematical Foundations of Computer Graphics II \emph{or} & \TextField[name=M1716_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=M1716_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		Math 2501           & Elementary Probability and Statistics                      & \TextField[name=M2501_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1,borderstyle=U]{} & \TextField[name=M2501_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		\hline
+	\end{tabular}
+
+	\section*{Other Required CIS courses: \large{three additional CIS courses from: 3140, 3142, 3410, 3415, 3610, 3650, 3660, 3665, 3667, 3810, 4610}}
+	\setlength\tabcolsep{4pt}
+
+	\begin{tabular}{ |p{3.27cm}|p{6cm}|p{4.8cm}|p{2.3cm}|  }
+
+		% \begin{tabularx}{\linewidth}{|L{1in}|L{2.25in}|E{1in}|E{0.5in}|}
+		%\begin{tabularx}{\linewidth}{| >{\hsize=0.5\hsize}l|
+		%                                     >{\hsize=1.0\hsize}l|
+		%                                     >{\hsize=0.5\hsize}C|
+		%                                     >{\hsize=0.5\hsize}C| }
+		\hline
+		Course                                                                        & Title                                                                  & Instructor                                                                  & Grade                                                                    \\
+		\hlinewd{1.5pt}
+		CISC \TextField[name=a1_course,width=2.36cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=a1_title,width=5.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=a1_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=a1_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		\hline
+		CISC \TextField[name=a2_course,width=2.36cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=a2_title,width=5.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=a2_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=a2_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		\hline
+		CISC \TextField[name=a3_course,width=2.36cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=a3_title,width=5.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=a3_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=a3_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		\hline
+	\end{tabular}
+	\section*{Two courses from: \large{Art 2811, 2820, 2821, 3812; Music 3260, 3261, 3262, 3264 (or CISC 2600), 3322; Film 1201, 2701; TV, Radio, and Emerging Media 2420, 3861, 3871, 3951}}
+	\setlength\tabcolsep{4pt}
+
+	\begin{tabular}{ |p{3.27cm}|p{6cm}|p{4.8cm}|p{2.3cm}|  }
+
+		% \begin{tabularx}{\linewidth}{|L{1in}|L{2.25in}|E{1in}|E{0.5in}|}
+		%\begin{tabularx}{\linewidth}{| >{\hsize=0.5\hsize}l|
+		%                                     >{\hsize=1.0\hsize}l|
+		%                                     >{\hsize=0.5\hsize}C|
+		%                                     >{\hsize=0.5\hsize}C| }
+		\hline
+		Course                                                                  & Title                                                                  & Instructor                                                                  & Grade                                                                    \\
+		\hlinewd{1.5pt}
+		\TextField[name=b1_course,width=3.3cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=b1_title,width=5.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=b1_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=b1_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		\hline
+		\TextField[name=b2_course,width=3.3cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=b2_title,width=5.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=b2_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=b2_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		\hline
+	\end{tabular}
+	\otherCourses %input otherCourses from permission_includes.tex
+	\vfill
+
+	% Text under the table
+
+	% $Area below intentionally left blank
+\end{Form}
+\end{document}

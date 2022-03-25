@@ -1,0 +1,111 @@
+% 4900 configs
+
+\usepackage[margin=2cm]{geometry}
+
+% document
+\usepackage{fancyheadings, verbatim}
+\pagestyle{fancyplain}
+
+% fonts
+\usepackage[T1]{fontenc}
+\usepackage{baskervillef}
+\usepackage[varqu,varl,var0]{inconsolata}
+\usepackage[scale=.95,type1]{cabin}
+\usepackage[baskerville,vvarbb]{newtxmath}
+\usepackage[cal=boondoxo]{mathalfa}
+
+% list
+\usepackage{enumitem}
+
+% tables
+\usepackage{cellspace, tabularx, multirow, xcolor}      % <---
+
+\setlength\cellspacetoplimit{10pt}     % <---
+\setlength\cellspacebottomlimit{10pt}  % <---
+\setlength{\parindent}{0em}   % noindent by default
+
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{E}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\addparagraphcolumntypes{C}          % <---
+\newcommand\mcx[1]{\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep\centering}X|}{#1}} % <---
+
+
+% forms
+% this is needed for forms and links within the text
+\usepackage[pdfborderstyle={/S/U/W 1}]{hyperref}  % attempt setting universal borders
+
+\hypersetup{
+  pdfauthor   = {chuang@sci.brooklyn.cuny.edu},
+  pdfkeywords = {Brooklyn College},
+  menubordercolor=0 0 0,
+  menucolor=0 0 0,
+  allbordercolors=0 0 0,
+  pdflinkmargin=-1.0pt,
+  colorlinks=false,
+  pdfborderstyle={/S/U/W 1}
+} 
+\def\Fld@menubordercolor{0 0 0} % border color black
+\def\Fld@height{0.4cm} %
+
+
+
+\makeatletter
+
+\def\hlinewd#1{ %
+  \noalign{\ifnum0=`}\fi\hrule \@height #1 %
+  \futurelet\reserved@a\@xhline
+}
+
+% https://tex.stackexchange.com/questions/179019/frame-box-around-chapter-section-headings
+\newcommand\makeSecHead[4][\fbox]{%
+    \@namedef{#2}{\@ifnextchar*{\@nameuse{#2@i}}{\@nameuse{#2@ii}}}
+    %
+    \expandafter\def\csname#2@i\endcsname*##1{\par\vspace{#4}\noindent
+       #1{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule}{%
+         \normalfont\normalsize#3\makebox[0pt][l]{}~##1}}\par\vspace{#4}}%
+    %
+    \expandafter\def\csname#2@ii\endcsname{\@ifnextchar[{\@nameuse{#2@iii}}{\@nameuse{#2@iv}}}%
+    %
+    \expandafter\def\csname#2@iii\endcsname[##1]##2{\par\vspace{#4}\noindent
+      #1{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule}{%
+        \refstepcounter{#2}\normalfont\normalsize#3\makebox[14pt][l]{\@nameuse{the#2}}~##2}}%
+        \addcontentsline{toc}{#2}{\@nameuse{the#2}~##1}\par\vspace{#4}}%
+    %
+    \expandafter\def\csname#2@iv\endcsname##1{\par\vspace{#4}\noindent
+     #1{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule}{%
+       \refstepcounter{#2}\normalfont\normalsize#3\makebox[14pt][l]{\@nameuse{the#2}}~##1}}%
+       \addcontentsline{toc}{#2}{\@nameuse{the#2}~##1}\par\vspace{#4}}%
+  }
+
+% \makeSecHead[\colorbox{gray!30}]{chapter}{\Large\bfseries}{24pt}
+\makeSecHead[\colorbox{gray!30}]{section}{\Large\bfseries}{10pt}
+\makeSecHead{subsection}{\large\bfseries}{12pt}
+\makeSecHead{subsubsection}{\large\bfseries}{10pt}
+
+\makeatother
+
+
+
+    \renewcommand*{\DefaultHeightofText}{3ex}
+    \renewcommand*{\DefaultWidthofText}{3cm}
+    \renewcommand*{\DefaultHeightofChoiceMenu}{3ex}
+    \def\DefaultHeightofCheckBox{0.8\baselineskip}
+    \def\DefaultWidthofCheckBox{\baselineskip}
+    \def\DefaultOptionsofRadio{print}
+
+\newcommand{\makeStudentBlock}[1]{%
+    \section*{Your Information}
+    
+    \begin{tabularx}{\linewidth}{XX}
+    % \baselineskip=20pt
+     \TextField[name=student_fname,width=6.2cm,charsize=12pt,bordercolor={0 0 0},borderstyle=U]{\textbf{First Name:}}  &
+     \TextField[name=student_lname,width=6.2cm,charsize=12pt,bordercolor=0 0 0,borderstyle=U]{\textbf{Last Name:}} \\[5pt]
+     \TextField[name=student_emplid,width=5.6cm,charsize=12pt,borderstyle=U,bordercolor=0 0 0]{\textbf{CUNYFirst ID:}} &
+     \TextField[name=student_email,width=7.1cm,charsize=12pt,bordercolor=0 0 0,borderstyle=U]{\textbf{Email:}} \\[5pt]
+     \TextField[name=student_semester,width=7cm,charsize=10pt,bordercolor=0 0 0,borderstyle=U,value=#1]{\textbf{Semester:}} &
+     \ChoiceMenu[combo,name=student_section,width=4.5cm,bordercolor=0.5 0.5 0.5]{Section: }{VC1A, VC1B, VC1C} \\
+    \end{tabularx}%
+}

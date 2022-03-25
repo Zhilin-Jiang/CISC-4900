@@ -1,0 +1,96 @@
+% reusable snippets for permission forms
+
+% Reusable blocks
+
+\newcommand\studentInfo[3]{%
+
+	% Header
+	\setlength{\headheight}{18pt}
+	\lhead[\thepage]{\large{\textbf{CISC 4900/4905}}, #2}
+	\rhead[\thesection]{\textbf{Course Permission Request and Student Profile Form}}
+
+	\begin{center}
+		\large{\textbf{Major in #3}}
+	\end{center}
+
+	% % ==== INSTRUCTIONS =====
+	\textcolor{red}{To student: Please complete this form with a pdf editor\footnote{\noindent Download Adobe Reader from \url{https://get.adobe.com/reader/} \\ or complete this pdf online \url{https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-edit-pdfs-chromebook.html}}. Submit the completed copy to Dropbox\footnote{see the course calendar for due dates}}. \\
+	
+	\section*{Student Information}
+
+	\renewcommand{\arraystretch}{1}
+	    \begin{tabularx}{\linewidth}{XX}
+	     \TextField[name=student_fname,width=6.2cm,charsize=12pt,bordercolor=0 0 0,borderstyle=U]{\textbf{First Name:}}  &
+	     \TextField[name=student_lname,width=6.2cm,charsize=12pt,bordercolor=0 0 0,borderstyle=U]{\textbf{Last Name:}} \\[5pt]
+	     \TextField[name=student_emplid,width=5.6cm,charsize=12pt,borderstyle=U,bordercolor=0 0 0]{\textbf{CUNYFirst ID:}} &
+	     \TextField[name=student_email,width=7.1cm,charsize=12pt,bordercolor=0 0 0,borderstyle=U]{\textbf{Email:}} \\[5pt]
+	     \ChoiceMenu[combo,name=student_semester,width=4.5cm,bordercolor=0.5 0.5 0.5]{\textbf{Final Semester:} }{{Spring 2022}=Sp22, {Summer 2022}=Su22, Other=Other} & 
+	     \TextField[name=student_major,width=5cm,charsize=12pt,bordercolor=0 0 0,borderstyle=U,value=#3]{\textbf{Major:}}\\
+	    \end{tabularx}%
+	\renewcommand{\arraystretch}{1.2}
+
+	\vspace{0.1in}
+	\hrulefill
+}
+
+\newcommand\internshipInfo{%
+	\section*{Internship}
+
+	\textbf{INSTRUCTIONS} Check (and complete) one of the following: \\
+
+	\setlength\extrarowheight{2pt}
+	\renewcommand{\arraystretch}{1.5}
+
+	\begin{tabularx}{\linewidth}{ |E{0.05\linewidth}|L{0.9\linewidth}|}
+		\hline
+		\CheckBox[name=internship_none,checkboxsymbol=\ding{53},height=0.8\baselineskip,charsize=10pt,bordercolor=0.5 0.5 0.5,width=4ex]{}
+		 & 1. I will not be part of an internship (and do not expect to find one on my own).                                                                                                                                                                                                                               \\
+		{}
+		 & \small{if you’d like, in a couple of sentences, please describe any areas of particular interest. This might include: a CIS course that you found particularly interesting; work/internship experience; a particular technology or programming language; an application of computer science that interests you} \\[5pt]
+		 & \TextField[name=interest_desc,width=1\linewidth,charsize=10pt,bordercolor=0 0 0,multiline,height=.6in]{}                                                                                                                                                                                                        \\[5pt] %created a input box that allow user to describe their interest 
+		\hline
+		\CheckBox[name=project_status_3,checkboxsymbol=\ding{53},charsize=10pt,bordercolor=0.5 0.5 0.5,width=4ex]{}
+		 & 2. I will be employed and working with the following during Spring 2022:                                                                                                                                                                                                                                        \\
+		{}
+		 & \small{Fill out this section ONLY if you have already been accepted for an internship, have arranged a project with a faculty member, or have a suitable project at your place of employment.}
+
+		\begin{tabular}[t]{m{0.2\linewidth}p{0.8\linewidth}}
+			\setlength\tabcolsep{10pt}
+			\textbf{ Agency, Firm, etc: } & \TextField[name=project_agency,width=0.8\linewidth,charsize=10pt,bordercolor=0 0 0,borderstyle=U]{}                               \\[5pt]
+			\textbf{ Supervisor Name: }   & \TextField[name=project_supervisor,width=0.8\linewidth,charsize=10pt,bordercolor=0 0 0,borderstyle=U]{}                           \\[5pt]
+			\textbf{ Supervisor Email: }  & \TextField[name=project_supervisor_email,width=0.8\linewidth,bordercolor=0 0 0,borderstyle=U,charsize=10pt]{}                     \\[5pt]
+			\textbf{ Relationship: }      & \ChoiceMenu[combo,name=project_supervisor_rel,width=0.4\linewidth,bordercolor=0.5 0.5 0.5]{}{Academic, Professional, Other, None} \\[5pt]
+			\textbf{Brief Description:}   & \TextField[name=project_desc,width=0.8\linewidth,charsize=10pt,bordercolor=0 0 0,multiline,height=.6in]{}                         \\[5pt]
+		\end{tabular}                                                                                                                                           \\
+
+		\hline
+	\end{tabularx}\\
+}
+
+%a reusable section for 3 permission forms
+\newcommand\otherCourses{%
+	\section*{Other 'Relevant' (CIS and non-CIS) Courses}
+	\setlength\tabcolsep{4pt}
+
+	\begin{tabular}{ |p{3.27cm}|p{6cm}|p{4.8cm}|p{2.3cm}|  }
+
+		% \begin{tabularx}{\linewidth}{|L{1in}|L{2.25in}|E{1in}|E{0.5in}|}
+		%\begin{tabularx}{\linewidth}{| >{\hsize=0.5\hsize}l|
+		%                                     >{\hsize=1.0\hsize}l|
+		%                                     >{\hsize=0.5\hsize}C|
+		%                                     >{\hsize=0.5\hsize}C| }
+		\hline
+		Course                                                                      & Title                                                                      & Instructor                                                                      & Grade                                                                        \\
+		\hlinewd{1.5pt}
+		\TextField[name=other1_course,width=3.3cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=other1_title,width=5.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=other1_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=other1_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		\hline
+		\TextField[name=other2_course,width=3.3cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=other2_title,width=5.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=other2_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=other2_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		\hline
+		\TextField[name=other3_course,width=3.3cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=other3_title,width=5.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=other3_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=other3_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		\hline
+		\TextField[name=other4_course,width=3.3cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=other4_title,width=5.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=other4_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=other4_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		\hline
+		\TextField[name=other5_course,width=3.3cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=other5_title,width=5.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=other5_instructor,width=4.8cm,charsize=8pt,bordercolor=1 1 1]{} & \TextField[name=other5_grade,width=2.2cm,charsize=8pt,bordercolor=1 1 1]{{}} \\
+		\hline
+	\end{tabular}
+}
